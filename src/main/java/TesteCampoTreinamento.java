@@ -37,7 +37,7 @@ public class TesteCampoTreinamento {
 		assertEquals("Testes",driver.findElement(By.id("elementosForm:sugestoes")).getAttribute("value"));
 		driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Testes\n Testes \n\n Teste100");
 		
-		//driver.quit();
+		driver.quit();
 		
 	}
 
