@@ -1,4 +1,6 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -39,6 +41,24 @@ public class TesteCampoTreinamento {
 		
 		driver.quit();
 		
+	}
+	
+	@Test
+	public void testeRadioButtonECheckBox() {
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		//selecionar o radio button
+		driver.findElement(By.id("elementosForm:sexo:1")).click();
+		//Selecionar o check box
+		driver.findElement(By.id("elementosForm:comidaFavorita:3")).click();
+		
+		//Verificação
+		assertTrue(driver.findElement(By.id("elementosForm:sexo:1")).isSelected());
+		assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:3")).isSelected());
+		
+		driver.quit();
 	}
 
 }
